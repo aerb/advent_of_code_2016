@@ -1,4 +1,3 @@
-import sun.plugin.dom.exception.InvalidStateException
 import java.io.File
 
 val keys = listOf(
@@ -18,7 +17,7 @@ val code = File("in.txt").readLines().map { line ->
             'D' -> pos.copy(y = pos.y + 1)
             'L' -> pos.copy(x = pos.x - 1)
             'R' -> pos.copy(x = pos.x + 1)
-            else -> throw InvalidStateException("$char")
+            else -> throw IllegalStateException()
         }
         val valid = keys.getOrNull(next.y)?.getOrNull(next.x) != null
         if(valid) {
